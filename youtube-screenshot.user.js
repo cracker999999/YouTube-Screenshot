@@ -7,6 +7,7 @@
 // @match        https://www.youtube.com/*
 // @match        https://www.youtube.com/watch?v=*
 // @grant        none
+// @homepage     https://github.com/cracker999999/YouTube-Screenshot
 // ==/UserScript==
 
 (function() {
@@ -45,6 +46,17 @@
         }
     }
 
-    // Add keyboard shortcut listener
-    document.addEventListener('keydown', handleKeyPress);
+    // Initialize with delay to avoid conflicts with other userscripts
+    function initWithDelay() {
+        setTimeout(() => {
+            // Add keyboard shortcut listener
+            document.addEventListener('keydown', handleKeyPress);
+            console.log('YouTube Screenshot: Keyboard shortcut initialized');
+        }, 2000); // 2 seconds delay
+    }
+
+    // Start initialization after page load
+    window.addEventListener('load', initWithDelay);
+    // Handle YouTube's SPA navigation
+    window.addEventListener('yt-navigate-finish', initWithDelay);
 })();
