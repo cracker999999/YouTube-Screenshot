@@ -37,9 +37,6 @@ A simple userscript that allows you to take screenshots of YouTube videos using 
 
 MIT License
 
-## Author
-
-Leen
 
 ## Contributing
 
